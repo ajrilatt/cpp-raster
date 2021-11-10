@@ -1,0 +1,28 @@
+# unit_cube.obj
+# hand-written by Adam Rilatt
+v 0.0 0.0 0.0
+v 0.0 1.0 0.0
+v 1.0 1.0 0.0
+v 1.0 0.0 0.0
+v 0.0 0.0 1.0
+v 0.0 1.0 1.0
+v 1.0 1.0 1.0
+v 1.0 0.0 1.0
+# front
+f 1 2 3
+f 1 3 4
+# left
+f 5 2 1
+f 5 6 2
+# right
+f 4 3 7
+f 4 7 8
+# back
+f 8 7 6
+f 8 6 5
+# top
+f 2 6 7
+f 2 7 3
+# bottom
+f 5 1 4
+f 5 4 8
