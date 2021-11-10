@@ -17,45 +17,48 @@ TODO:
 
 class Vector {
 /*
-    A Vector is a point in 3-dimensinonal space. It consists of an x, y, and z
+    A Vector is a point in 3-dimensional space. It consists of an x, y, and z
     coordinate, all of which are double-precision floating point numbers.
+    It also includes an additional value w which is used for 3-dimensional
+    manipulations using Matrices.
 */
 public:
-    
+
     // Constructors
     Vector() = default;
-    Vector(const double x, const double y, const double z);
+    Vector(const double x, const double y, const double z, const double w);
     Vector(const Vector& v);
-    
+
     // Destructor
     ~Vector() = default;
-    
+
     // Operator overloads
     Vector operator=(const Vector&);
     Vector operator+(const Vector&);
     Vector operator-(const Vector&);
     Vector operator*(const double);
     Vector operator/(const double);
-    
+
     // Client I/O
     std::string to_string() const;
-    
+
     // Data members
     double x {0.0};
     double y {0.0};
     double z {0.0};
-    
+    double w {1.0};
+
 //private:
 };
 
 // Construct this Vector by-value.
-Vector::Vector(const double x, const double y, const double z)
-    : x{x}, y{y}, z{z}
+Vector::Vector(const double x, const double y, const double z, const double w = 1.0)
+    : x(x), y(y), z(z), w(w)
 { }
 
 // Construct this Vector as a copy of Vector v.
 Vector::Vector(const Vector& v)
-    : x{v.x}, y{v.y}, z{v.z}
+    : x(v.x), y(v.y), z(v.z), w(v.w)
 { }
 
 // Assignment operator, which returns the left-hand Vector.
@@ -63,6 +66,7 @@ Vector Vector::operator=(const Vector& v) {
     x = v.x;
     y = v.y;
     z = v.z;
+    w = v.w;
     return *this;
 }
 
@@ -109,7 +113,8 @@ Vector Vector::operator/(const double d) {
 std::string Vector::to_string() const {
     std::string s = "Vector {" + std::to_string(x) + ", " +
                                  std::to_string(y) + ", " +
-                                 std::to_string(z) + "}";
+                                 std::to_string(z) + ", " +
+                                 std::to_string(w) + "}";
     return s;
 }
 
