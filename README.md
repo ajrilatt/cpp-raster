@@ -1,2 +1,3 @@
 # cpp-raster
-An ASCII-based rasterization engine in C++.
+An console-based rasterization engine in C++.
+As of January 2022, currently under active development.
