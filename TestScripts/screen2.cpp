@@ -15,8 +15,8 @@ int main() {
     srand(time(nullptr));
 
     short width = 160;
-    short height = 80;
-    short pixel_size = 8;
+    short height = 120;
+    short pixel_size = 6;
 
     Screen screen { "Worms", width, height, pixel_size };
 
@@ -50,14 +50,16 @@ int main() {
         int y1 = rand() % screen.get_height();
         int x2 = rand() % screen.get_width();
         int y2 = rand() % screen.get_height();
+        int x3 = rand() % screen.get_width();
+        int y3 = rand() % screen.get_height();
 
-        screen.draw_line(x1, y1, x2, y2, pixel_types[rand() % 5],
+        screen.draw_tri(x1, y1, x2, y2, x3, y3, pixel_types[rand() % 5],
                          color_palette[rand() % 15], ConsoleColor::BG_BLACK);
 
         //screen.set_pixel(x, y, pixel_types[rand() % 5], ConsoleColor::FG_DARK_RED, ConsoleColor::BG_BLACK);
 
         ++c;
-        if (!(c % 128))
+        //if (!(c % 2))
             screen.update();
 
     }

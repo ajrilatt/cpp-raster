@@ -57,6 +57,10 @@ Screen::Screen(const string& name, int window_width, int window_height, int pixe
     memset(screen_buffer, 0, sizeof(CHAR_INFO) * width * height);
 }
 
+Screen::~Screen() {
+    delete[] screen_buffer;
+}
+
 // Internal helper method.
 pair<int, int> Screen::clip_coords(int x, int y) {
 

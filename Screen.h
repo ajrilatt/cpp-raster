@@ -66,8 +66,8 @@ public:
            int window_height,
            int pixel_size);
 
-    // Default destructor is adequate.
-    ~Screen() = default;
+    // Destructor.
+    ~Screen();
 
 	// Returns the width of the console.
 	short get_width();
